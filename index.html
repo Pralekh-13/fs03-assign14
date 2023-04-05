@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Password Validator</title>
+  </head>
+
+  <body>
+    <label>Enter Password</label>
+    <input type="password" id="password" name="password" />
+    <button type="button" onclick="validatePass()">Submit</button>
+    <div id="error-message" class="error-message"></div>
+    <script>
+
+      function validatePass() {
+        const password = document.getElementById("password").value;
+        const regex =/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@!#$%^&*()\-+])[A-Za-z\d@!#$%^&*()\-+]{8,}$/;
+        const isValid = regex.test(password);
+        const errorMessage = document.getElementById("error-message");
+        
+        if (isValid) {
+          errorMessage.textContent = "";
+          alert("Password is valid!");
+        } else {
+          errorMessage.textContent = 
+          alert("Password must be at least 8 characters long, contain at least one uppercase letter, one lowercase letter, one number, and one special character.");
+        }
+      }
+      
+    </script>
+  </body>
+</html>
